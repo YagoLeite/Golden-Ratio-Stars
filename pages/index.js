@@ -1,12 +1,20 @@
 import { Button, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import Square from "../components/three/Square";
 
-import { Html, OrbitControls, Stars } from "@react-three/drei";
+import {
+  Environment,
+  Html,
+  OrbitControls,
+  Sky,
+  Stars,
+} from "@react-three/drei";
 import AnimatedSphere from "../components/three/AnimatedSphere";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import WavyText from "../components/WavyText";
+import Controls from "../components/three/Controls";
+import PendularScene from "../components/three/PendularScene";
 
 const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -16,6 +24,7 @@ export default function Home() {
     md: "45px",
     lg: "72px",
   });
+
   return (
     <Flex
       w="100%"
@@ -42,46 +51,7 @@ export default function Home() {
           }}
           camera={{ position: [0, 5, 10] }}
         >
-          <Stars />
-          <Html fullscreen>
-            <Flex
-              h="100%"
-              justify="center"
-              align="center"
-              mt="105px"
-              direction="column"
-              gap="15px"
-            >
-              <WavyText
-                size={breakPointSizes}
-                text="Welcome"
-                delayDuration={1}
-              />
-              <WavyText
-                size={breakPointSizes}
-                text="I'm Yago"
-                delayDuration={1.8}
-              />
-              <WavyText
-                size={breakPointSizes}
-                text="Frontend Developer"
-                delayDuration={2.6}
-              />
-            </Flex>
-          </Html>
-          <OrbitControls enableZoom={false} />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[-2, 5, 1]} intensity={1} />
-          {test.map((number, index) => {
-            return (
-              <Square
-                vector={new THREE.Vector3(0, -1 - index, -number * 4.2)}
-                frequency={1.2 + number * 0.05}
-                number={number}
-              />
-            );
-          })}
-          {/* <Square /> */}
+          <PendularScene />
         </Canvas>
       </Flex>
       {/* <Flex
@@ -97,6 +67,7 @@ export default function Home() {
         <WavyText text="Frontend Developer" delayDuration={2.6} />
       </Flex> */}
     </Flex>
+    // <div>oi</div>
   );
 }
 

@@ -1,9 +1,25 @@
 import { useBreakpointValue } from "@chakra-ui/react";
-import { GradientTexture, MeshDistortMaterial } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import React, { useRef, useState, useEffect } from "react";
+import {
+  Environment,
+  GradientTexture,
+  MeshDistortMaterial,
+} from "@react-three/drei";
+import { useFrame, useLoader } from "@react-three/fiber";
+import React, { useRef, useState, useEffect, Suspense } from "react";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
+import WoodColor from "../../public/woodColor.jpg";
 
 const Square = ({ vector, frequency, number }) => {
+  const [color, displacement, normal, roughness, metalness] = useLoader(
+    TextureLoader,
+    [
+      "/rock/rockColor.jpg",
+      "/rock/rockDisplacement.jpg",
+      "/rock/rockNormal.jpg",
+      "/rock/rockRoughness.jpg",
+      // "/fence/fenceMetalness.jpg",
+    ]
+  );
   const breakpoints = useBreakpointValue(
     {
       sm: 0.3,
@@ -31,24 +47,39 @@ const Square = ({ vector, frequency, number }) => {
     );
   });
   return (
-    <mesh ref={squareRef} speed={0.08}>
-      <sphereGeometry args={[1]} rotateX={30} />
-      {/* <meshLambertMaterial color="#7222D3" /> */}
-      {/* <meshStandardMaterial roughness={0.1} metalness={0.1} color="#7222D3" /> */}
-      {/* <MeshDistortMaterial
+    <Suspense fallback={null}>
+      <mesh ref={squareRef} speed={0.08}>
+        <sphereGeometry rotateX={30} />
+        <meshPhysicalMaterial
+          roughness={0}
+          metalness={0}
+          transmission={1}
+          ior={2.33}
+        />
+        {/* <meshLambertMaterial color="#7222D3" /> */}
+        {/* <meshStandardMaterial
+        map={color}
+        displacementMap={displacement}
+        // metalnessMap={metalness}
+        roughnessMap={roughness}
+        normalMap={normal}
+        // color="red"
+      /> */}
+        {/* <MeshDistortMaterial
         color="#8352fd"
         distort={0.4}
         speed={8}
         roughness={0}
       /> */}
-      <meshBasicMaterial>
+        {/* <meshBasicMaterial>
         <GradientTexture
           stops={[0, 1]} // As many stops as you want
           colors={["aquamarine", "hotpink"]} // Colors need to match the number of stops
           size={1024} // Size is optional, default = 1024
         />
-      </meshBasicMaterial>
-    </mesh>
+      </meshBasicMaterial> */}
+      </mesh>
+    </Suspense>
   );
 };
 
