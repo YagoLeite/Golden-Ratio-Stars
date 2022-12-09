@@ -23,21 +23,22 @@ const PendularScene = () => {
 
   const orbitRef = useRef(null);
 
-  useFrame(() => {
-    // console.log(orbitRef.current);
-  });
+  // useFrame(() => {
+  //   // console.log(orbitRef.current);
+  // });
   return (
     <Suspense fallback={null}>
-      <Stars />
-      <Sky />
+      {/* <Stars />
+      <Sky /> */}
       <Html fullscreen>
         <Flex
           h="100%"
           justify="center"
-          align="center"
+          align="left"
           mt="105px"
           direction="column"
           gap="15px"
+          px="30px"
         >
           <WavyText size={breakPointSizes} text="Welcome" delayDuration={1} />
           <WavyText
@@ -52,13 +53,10 @@ const PendularScene = () => {
           />
         </Flex>
       </Html>
-      <OrbitControls ref={orbitRef} enableZoom={false} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[-2, 5, 1]} intensity={1} />
       {test.map((number, index) => {
         return (
           <Square
-            vector={new THREE.Vector3(0, -1 - index, -number * 4.2)}
+            vector={new THREE.Vector3(0, -1 - index, -2 * number * 5.2)}
             frequency={1.2 + number * 0.05}
             number={number}
           />

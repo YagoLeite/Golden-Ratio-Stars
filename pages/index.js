@@ -49,8 +49,12 @@ export default function Home() {
             width: "100%",
             height: "100%",
           }}
-          camera={{ position: [0, 5, 10] }}
+          camera={{ position: [0, 15, 35] }}
         >
+          <Stars />
+          <OrbitControls enableZoom={false} />
+          <ambientLight intensity={0.2} />
+          <directionalLight position={[-2, 5, 1]} intensity={1} />
           <PendularScene />
         </Canvas>
       </Flex>
