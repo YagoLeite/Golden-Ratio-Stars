@@ -23,6 +23,13 @@ const mywords = [
 
 function Word({ children, ...props }) {
   const color = new THREE.Color();
+  const fontProps = {
+    font: "/ShadowsIntoLight-Regular.ttf",
+    fontSize: 1.8,
+    letterSpacing: -0.05,
+    lineHeight: 1,
+    // "material-toneMapped": false,
+  };
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
   const over = (e) => (e.stopPropagation(), setHovered(true));
@@ -42,7 +49,7 @@ function Word({ children, ...props }) {
       onPointerOut={out}
       onClick={() => console.log("clicked")}
       {...props}
-      fontSize={1.8}
+      {...fontProps}
       children={children}
     />
   );
