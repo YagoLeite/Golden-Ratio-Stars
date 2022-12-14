@@ -19,7 +19,6 @@ const mywords = [
 function Word({ children, ...props }) {
   const color = new THREE.Color();
   const fontProps = {
-    font: "/Inter-Bold.woff",
     fontSize: 1.8,
     letterSpacing: -0.05,
     lineHeight: 1,
