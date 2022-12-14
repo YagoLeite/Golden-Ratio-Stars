@@ -24,8 +24,8 @@ const mywords = [
 function Word({ children, ...props }) {
   const color = new THREE.Color();
   const fontProps = {
-    // font: "/ShadowsIntoLight-Regular.ttf",
-    font: "/Roboto.woff",
+    font: "/ShadowsIntoLight-Regular.ttf",
+    // font: "/Roboto.woff",
     fontSize: 1.8,
     letterSpacing: -0.05,
     lineHeight: 1,
