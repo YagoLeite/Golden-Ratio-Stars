@@ -29,16 +29,9 @@ function Word({ children, ...props }) {
   const [hovered, setHovered] = useState(false);
   const over = (e) => (e.stopPropagation(), setHovered(true));
   const out = () => setHovered(false);
-  // Change the mouse cursor on hover
-  useEffect(() => {
-    if (hovered) document.body.style.cursor = "pointer";
-    return () => (document.body.style.cursor = "auto");
-  }, [hovered]);
-  // Tie component to the render-loop
+
   useFrame(({ camera }) => {
-    // Make text face the camera
     ref.current.quaternion.copy(camera.quaternion);
-    // Animate font color
     ref.current.material.color.lerp(
       color.set(hovered ? "#fa2720" : "white"),
       0.1
