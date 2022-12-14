@@ -15,6 +15,8 @@ import { Suspense, useRef } from "react";
 import WavyText from "../components/WavyText";
 import Controls from "../components/three/Controls";
 import PendularScene from "../components/three/PendularScene";
+import ReactScene from "../components/three/ReactScene";
+import CloudWordsScene from "../components/three/CloudWordsScene";
 
 const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -34,44 +36,24 @@ export default function Home() {
       direction="column"
       overflowX="hidden"
     >
-      <Flex
-        justify="center"
-        align="center"
-        bg="black"
-        w="100%"
-        h="100vh"
-        onMouseDown={() => {
-          return false;
-        }}
-      >
-        <Canvas
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-          camera={{ position: [0, 15, 35] }}
-        >
-          <Stars />
-          <OrbitControls enableZoom={false} />
-          <ambientLight intensity={0.2} />
-          <directionalLight position={[-2, 5, 1]} intensity={1} />
-          <PendularScene />
-        </Canvas>
+      <Flex justify="center" align="center" w="100%" h="100vh">
+        <PendularScene />
       </Flex>
-      {/* <Flex
-        h="100%"
-        justify="center"
-        align="center"
-        mt="105px"
-        direction="column"
-        gap="15px"
-      >
-        <WavyText text="Welcome" delayDuration={1} />
-        <WavyText text="I'm Yago" delayDuration={1.8} />
-        <WavyText text="Frontend Developer" delayDuration={2.6} />
-      </Flex> */}
+      <Flex w="100%" h="100%" bg="purple.800" justify="space-between">
+        <Flex direction="column" gap="15px">
+          <Text>ahsdoiahsiodhaoidhoad</Text>
+          <Text>ahsdoiahsiodhaoidhoad</Text>
+          <Text>ahsdoiahsiodhaoidhoad</Text>
+        </Flex>
+
+        <Flex h="300px" w="300px" justify="center" align="center">
+          <ReactScene />
+        </Flex>
+        <Flex h="300px" w="300px" justify="center" align="center">
+          <CloudWordsScene />
+        </Flex>
+      </Flex>
     </Flex>
-    // <div>oi</div>
   );
 }
 

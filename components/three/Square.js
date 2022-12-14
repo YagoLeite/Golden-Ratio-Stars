@@ -1,25 +1,7 @@
-import { useBreakpointValue } from "@chakra-ui/react";
-import {
-  Environment,
-  GradientTexture,
-  MeshDistortMaterial,
-} from "@react-three/drei";
-import { useFrame, useLoader } from "@react-three/fiber";
-import React, { useRef, useState, useEffect, Suspense } from "react";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
-import WoodColor from "../../public/woodColor.jpg";
+import { useFrame } from "@react-three/fiber";
+import React, { useRef, useEffect, Suspense } from "react";
 
-const Square = ({ vector, frequency, number }) => {
-  const [color, displacement, normal, roughness, metalness] = useLoader(
-    TextureLoader,
-    [
-      "/rock/rockColor.jpg",
-      "/rock/rockDisplacement.jpg",
-      "/rock/rockNormal.jpg",
-      "/rock/rockRoughness.jpg",
-      // "/fence/fenceMetalness.jpg",
-    ]
-  );
+const Square = ({ vector, frequency }) => {
   const squareRef = useRef();
   useEffect(() => {
     if (vector) {
@@ -37,7 +19,13 @@ const Square = ({ vector, frequency, number }) => {
     <Suspense fallback={null}>
       <mesh ref={squareRef} speed={0.08}>
         <sphereGeometry args={[2]} rotateX={30} />
-        <meshLambertMaterial color="#7222D3" wireframe />
+        {/* <meshLambertMaterial color="#7222D3" wireframe /> */}
+        <meshStandardMaterial
+          attach="material"
+          color="pink"
+          transparent
+          opacity={0.5}
+        />
       </mesh>
     </Suspense>
   );
