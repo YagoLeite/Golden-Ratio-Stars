@@ -60,6 +60,7 @@ const PendularScene = () => {
               vector={new THREE.Vector3(0, -1 - index, -2 * number * 5.2)}
               frequency={1.2 + number * 0.05}
               number={number}
+              key={index}
             />
           );
         })}
