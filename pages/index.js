@@ -50,7 +50,9 @@ export default function Home() {
           <ReactScene />
         </Flex>
         <Flex h="300px" w="300px" justify="center" align="center">
-          <CloudWordsScene />
+          <Suspense fallback={null}>
+            <CloudWordsScene />
+          </Suspense>
         </Flex>
       </Flex>
     </Flex>
