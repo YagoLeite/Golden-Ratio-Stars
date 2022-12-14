@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, useState, useMemo, useEffect } from "react";
+import { useRef, useState, useMemo, useEffect, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Text,
@@ -44,15 +44,17 @@ function Word({ children, ...props }) {
     );
   });
   return (
-    <Text
-      ref={ref}
-      onPointerOver={over}
-      onPointerOut={out}
-      onClick={() => console.log("clicked")}
-      {...props}
-      {...fontProps}
-      children={children}
-    />
+    <Suspense fallback={null}>
+      <Text
+        ref={ref}
+        onPointerOver={over}
+        onPointerOut={out}
+        onClick={() => console.log("clicked")}
+        {...props}
+        {...fontProps}
+        children={children}
+      />
+    </Suspense>
   );
 }
 
