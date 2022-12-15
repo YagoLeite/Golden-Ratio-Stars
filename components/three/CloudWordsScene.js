@@ -2,12 +2,11 @@ import * as THREE from "three";
 import { useRef, useState, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
+  Text,
   TrackballControls,
   OrbitControls,
   Stats,
-  Html,
 } from "@react-three/drei";
-import { Flex, Text } from "@chakra-ui/react";
 
 const mywords = [
   "React",
@@ -22,44 +21,39 @@ const mywords = [
   "REST",
 ];
 
-function Word({ children, position, ...props }) {
+function Word({ children, ...props }) {
   const color = new THREE.Color();
   // const fontLoader = new THREE.FontLoader();
-  // const fontProps = {
-  //   // font: useMemo(() => fontLoader.load("ShadowsIntoLight-Regular.ttf"), []),
-  //   font: "ShadowsIntoLight-Regular.ttf",
-  //   fontSize: 1.8,
-  //   letterSpacing: -0.05,
-  //   lineHeight: 1,
-  //   // "material-toneMapped": false,
-  // };
+  const fontProps = {
+    // font: useMemo(() => fontLoader.load("ShadowsIntoLight-Regular.ttf"), []),
+    font: "/ShadowsIntoLight-Regular.ttf",
+    fontSize: 1.8,
+    letterSpacing: -0.05,
+    lineHeight: 1,
+    // "material-toneMapped": false,
+  };
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
   const over = (e) => (e.stopPropagation(), setHovered(true));
   const out = () => setHovered(false);
-  console.log(ref);
 
-  // useFrame(({ camera }) => {
-  //   ref.current.quaternion.copy(camera.quaternion);
-  //   // ref.current.material.color.lerp(
-  //   //   color.set(hovered ? "#fa2720" : "white"),
-  //   //   0.1
-  //   // );
-  // });
+  useFrame(({ camera }) => {
+    ref.current.quaternion.copy(camera.quaternion);
+    ref.current.material.color.lerp(
+      color.set(hovered ? "#fa2720" : "white"),
+      0.1
+    );
+  });
   return (
-    <Html ref={ref} position={position}>
-      <Flex w="fit-content" h="fit-content" justify="center" align="center">
-        <Text
-          ref={ref}
-          onPointerOver={over}
-          onPointerOut={out}
-          onClick={() => console.log("clicked")}
-          // {...props}
-          // {...fontProps}
-          children={children}
-        />
-      </Flex>
-    </Html>
+    <Text
+      ref={ref}
+      onPointerOver={over}
+      onPointerOut={out}
+      onClick={() => console.log("clicked")}
+      {...props}
+      {...fontProps}
+      children={children}
+    />
   );
 }
 
