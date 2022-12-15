@@ -26,7 +26,7 @@ function Word({ children, ...props }) {
   // const fontLoader = new THREE.FontLoader();
   const fontProps = {
     // font: useMemo(() => fontLoader.load("ShadowsIntoLight-Regular.ttf"), []),
-    font: "/ShadowsIntoLight-Regular.ttf",
+    font: "/Roboto.woff",
     fontSize: 1.8,
     letterSpacing: -0.05,
     lineHeight: 1,
