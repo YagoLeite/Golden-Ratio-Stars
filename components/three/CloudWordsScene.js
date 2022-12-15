@@ -6,6 +6,7 @@ import {
   TrackballControls,
   OrbitControls,
   Stats,
+  Stars,
 } from "@react-three/drei";
 
 const mywords = [
@@ -32,6 +33,8 @@ function Word({ children, ...props }) {
     lineHeight: 1,
     // "material-toneMapped": false,
   };
+
+  console.log(fontProps);
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
   const over = (e) => (e.stopPropagation(), setHovered(true));
@@ -83,6 +86,7 @@ export default function CloudWordsScene() {
   return (
     <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 45], fov: 90 }}>
       <Stats />
+      <Stars />
       <OrbitControls autoRotate enableZoom={false} />
       <fog attach="fog" args={["#202025", 0, 80]} />
       <Cloud count={6} radius={25} />
