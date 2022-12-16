@@ -4,22 +4,23 @@ import Blob from "./Blob";
 import { Html, OrbitControls } from "@react-three/drei";
 import { Flex, useBreakpointValue } from "@chakra-ui/react";
 import WavyText from "../../WavyText";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { EffectComposer, Bloom, Glitch } from "@react-three/postprocessing";
 
 const BlobScene = () => {
   return (
     <Canvas camera={{ position: [0.0, 0.0, 8.0] }}>
       <MyHTML />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={false} autoRotate />
       <Blob />
-      <EffectComposer>
+      {/* <EffectComposer>
         <Bloom
           mipmapBlur
           intensity={0.4}
           luminanceThreshold={0.5}
           radius={0.4}
         />
-      </EffectComposer>
+        <Glitch />
+      </EffectComposer> */}
     </Canvas>
   );
 };

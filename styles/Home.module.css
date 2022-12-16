@@ -5,3 +5,25 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.anim_gradient {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 9, 27) 0%,
+    /* rgb(46, 21, 52) 50%, */ rgb(44, 1, 54) 100%
+  );
+  background-size: "100% 400%";
+  animation: "gradient 2s ease infinite";
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} ;

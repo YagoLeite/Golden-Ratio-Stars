@@ -15,12 +15,16 @@ const Blob = () => {
     };
   });
 
-  console.log(isHovering);
+  console.log(ref.current);
 
   useFrame((state) => {
     const { clock } = state;
     if (ref.current) {
       ref.current.material.uniforms.u_time.value = 0.6 * clock.elapsedTime;
+
+      ref.current.rotation.z += 0.01;
+      ref.current.rotation.y += 0.02;
+      ref.current.rotation.x += 0.01;
 
       ref.current.material.uniforms.u_intensity.value = MathUtils.lerp(
         ref.current.material.uniforms.u_intensity.value,

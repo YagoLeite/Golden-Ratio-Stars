@@ -10,7 +10,6 @@ import {
   Sky,
   Stars,
 } from "@react-three/drei";
-import AnimatedSphere from "../components/three/AnimatedSphere";
 import { Suspense, useRef } from "react";
 import WavyText from "../components/WavyText";
 import Controls from "../components/three/Controls";
@@ -18,6 +17,8 @@ import PendularScene from "../components/three/PendularScene";
 import ReactScene from "../components/three/ReactScene";
 import CloudWordsScene from "../components/three/CloudWordsScene";
 import BlobScene from "../components/three/Blob/BlobScene";
+import TornadoScene from "../components/three/Tornado/TornadoScene";
+import styles from "../styles/Home.module.css";
 
 const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -29,25 +30,28 @@ export default function Home() {
   });
 
   return (
-    <Flex
-      w="100%"
-      maxW="100vw"
-      h="3000px"
-      bg="#282828"
-      direction="column"
-      overflowX="hidden"
-    >
-      {/* <Flex justify="center" align="center" w="100%" h="100vh">
+    <div className={styles.anim_gradient}>
+      <Flex
+        w="100%"
+        maxW="100vw"
+        h="3000px"
+        direction="column"
+        overflowX="hidden"
+      >
+        <Flex h="100vh" w="100%">
+          <TornadoScene />
+        </Flex>
+        {/* <Flex justify="center" align="center" w="100%" h="100vh">
         <PendularScene />
-      </Flex>
-      <Flex w="100%" h="100%" bg="purple.800" justify="space-between">
+      </Flex> */}
+        {/* <Flex w="100%" h="100%" bg="purple.800" justify="space-between">
         <Flex direction="column" gap="15px">
           <Text>ahsdoiahsiodhaoidhoad</Text>
           <Text>ahsdoiahsiodhaoidhoad</Text>
           <Text>ahsdoiahsiodhaoidhoad</Text>
-        </Flex>
-
-        <Flex h="300px" w="300px" justify="center" align="center">
+          </Flex>
+          
+          <Flex h="300px" w="300px" justify="center" align="center">
           <ReactScene />
         </Flex>
         <Flex h="300px" w="300px" justify="center" align="center">
@@ -56,10 +60,11 @@ export default function Home() {
           </Suspense>
         </Flex>
       </Flex> */}
-      <Flex h="100vh" w="100%">
+        {/* <Flex h="100vh" w="100%">
         <BlobScene />
+      </Flex> */}
       </Flex>
-    </Flex>
+    </div>
   );
 }
 

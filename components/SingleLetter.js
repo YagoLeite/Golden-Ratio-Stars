@@ -18,7 +18,7 @@ const SingleLetter = ({ letter, size }) => {
     <Text
       className={styles.unselectable}
       as={motion.div}
-      color="#00d5d6"
+      color="#4169E1"
       cursor="none"
       fontSize={size}
       //   fontSize={["25px", "35px", "45px"]}
