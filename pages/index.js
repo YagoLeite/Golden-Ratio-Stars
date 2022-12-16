@@ -17,6 +17,7 @@ import Controls from "../components/three/Controls";
 import PendularScene from "../components/three/PendularScene";
 import ReactScene from "../components/three/ReactScene";
 import CloudWordsScene from "../components/three/CloudWordsScene";
+import BlobScene from "../components/three/Blob/BlobScene";
 
 const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -32,11 +33,11 @@ export default function Home() {
       w="100%"
       maxW="100vw"
       h="3000px"
-      bg="lightgoldenrodyellow"
+      bg="#282828"
       direction="column"
       overflowX="hidden"
     >
-      <Flex justify="center" align="center" w="100%" h="100vh">
+      {/* <Flex justify="center" align="center" w="100%" h="100vh">
         <PendularScene />
       </Flex>
       <Flex w="100%" h="100%" bg="purple.800" justify="space-between">
@@ -54,6 +55,9 @@ export default function Home() {
             <CloudWordsScene />
           </Suspense>
         </Flex>
+      </Flex> */}
+      <Flex h="100vh" w="100%">
+        <BlobScene />
       </Flex>
     </Flex>
   );
