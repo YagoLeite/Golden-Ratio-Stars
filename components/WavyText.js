@@ -57,40 +57,6 @@ const WavyText = ({ text, delayDuration, size }) => {
             {letter === " " ? (
               <Text opacity={0}>aa</Text>
             ) : (
-              //   <Text
-              //     as={motion.div}
-              //     color="white"
-              //     cursor="none"
-              //     fontSize={fontSize}
-              //     key={index}
-              //     onSelect={() => {}}
-              //     ref={ref}
-              //     // whileHover={{
-              //     //   y: ["0px", "-8px", "4px", "0px"],
-              //     //   scale: [1, 1.2, 1.1, 1],
-              //     //   transition: { duration: 0.4, type: "spring" },
-              //     // }}
-              //     // variants={bump}
-              //     animate={controls}
-              //     onHoverStart={(e) => {
-              //       console.log(ref.current.value);
-              //       console.log(e);
-              //       if (!isAnimationPlaying) {
-              //         setIsAnimationPlaying(true);
-              //         controls.start(bump.visible);
-              //       }
-              //     }}
-              //     onAnimationComplete={() => setIsAnimationPlaying(false)}
-              //     // onHoverStart={() => {
-              //     //   controls.start({
-              //     //     y: ["0px", "-8px", "4px", "0px"],
-              //     //     scale: [1, 1.2, 1.1, 1],
-              //     //     transition: { duration: 0.4, type: "spring" },
-              //     //   });
-              //     // }}
-              //   >
-              //     {letter}
-              //   </Text>
               <SingleLetter size={size} letter={letter} />
             )}
           </Flex>

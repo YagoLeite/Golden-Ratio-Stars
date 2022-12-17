@@ -17,8 +17,9 @@ import PendularScene from "../components/three/PendularScene";
 import ReactScene from "../components/three/ReactScene";
 import CloudWordsScene from "../components/three/CloudWordsScene";
 import BlobScene from "../components/three/Blob/BlobScene";
-import TornadoScene from "../components/three/Tornado/TornadoScene";
+import GoldenScene from "../components/three/Golden/GoldenScene";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -39,7 +40,7 @@ export default function Home() {
         overflowX="hidden"
       >
         <Flex h="100vh" w="100%">
-          <TornadoScene />
+          <GoldenScene />
         </Flex>
         {/* <Flex justify="center" align="center" w="100%" h="100vh">
         <PendularScene />

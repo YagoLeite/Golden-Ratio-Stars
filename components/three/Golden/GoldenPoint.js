@@ -2,7 +2,7 @@ import { Point } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 
-const Tornado = ({ x, y, z, frequency }) => {
+const GoldenPoint = ({ x, y, z, frequency }) => {
   const pointRef = useRef(null);
   // useFrame((state) => {
   //   pointRef.current.position.x =
@@ -18,4 +18,4 @@ const Tornado = ({ x, y, z, frequency }) => {
   );
 };
 
-export default Tornado;
+export default GoldenPoint;
