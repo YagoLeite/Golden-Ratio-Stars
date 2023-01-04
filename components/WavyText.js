@@ -2,8 +2,10 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import SingleLetter from "./SingleLetter";
+import { useInView } from "react-intersection-observer";
 
 const WavyText = ({ text, delayDuration, size }) => {
+  const { ref, inView } = useInView({ threshold: 0.8 });
   const container = {
     hidden: {
       opacity: 0,
@@ -44,9 +46,10 @@ const WavyText = ({ text, delayDuration, size }) => {
   };
   return (
     <Flex
+      ref={ref}
       variants={container}
       initial="hidden"
-      animate="visible"
+      animate={inView && "visible"}
       justify="left"
       overflow="hidden"
       as={motion.div}
