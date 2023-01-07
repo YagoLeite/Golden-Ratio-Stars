@@ -21,7 +21,7 @@ const ReasonThree = () => {
   }
 
   return (
-    <Flex w="100%" h="100%" bg="blue">
+    <Flex w="100%" h="100%">
       <Spline
         style={{ height: "100%", width: "100%" }}
         scene="https://prod.spline.design/cNsHvrXtP9xiBL-O/scene.splinecode"
