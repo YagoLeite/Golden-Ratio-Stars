@@ -18,6 +18,7 @@ const ReasonOne = () => {
       maxW={["300px", "320px", "400px", "600px"]}
       gap="10px"
       color="white"
+      h="fit-content"
       className={styles.unselectable}
     >
       <Text
