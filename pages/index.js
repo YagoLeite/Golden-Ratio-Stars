@@ -28,14 +28,14 @@ export default function Home() {
         <Flex h="100vh" w="100%">
           <GoldenScene />
         </Flex>
-        <Flex w="100%" justify="space-between" align="center">
+        {/* <Flex w="100%" justify="space-between" align="center">
           <Flex>
             <AboutMe />
           </Flex>
           <Flex w="500px" h="500px" justify="center" align="center">
             <AtomScene />
           </Flex>
-        </Flex>
+        </Flex> */}
         {/* <Flex h="100%" direction="column">
           <Flex w="100%">
             <Flex w="100%" h="100vh" justify="center" align="top">
