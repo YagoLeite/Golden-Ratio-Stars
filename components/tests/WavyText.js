@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import SingleLetter from "./SingleLetter";
+import SingleLetter from "./tests/SingleLetter";
 import { useInView } from "react-intersection-observer";
 
 const WavyText = ({ text, delayDuration, size }) => {

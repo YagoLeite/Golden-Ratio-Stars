@@ -1,6 +1,6 @@
 import { Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
-import WavyText from "../WavyText";
+import WavyText from "../../WavyText";
 import MapedText from "../weirdText/MapedText";
 
 const query = [
