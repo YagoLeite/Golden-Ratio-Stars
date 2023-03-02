@@ -9,9 +9,10 @@ import { useControls } from "leva";
 const GoldenScene = () => {
   const orbit = useControls({
     autoRotate: { value: true },
+    secondStream: { value: true },
+    bloom: { value: true },
     zoom: { value: false },
     stars: { value: 300, min: 50, max: 500, step: 5 },
-    secondStream: { value: true },
   });
   const positions = ArrayOfPositions(ArrayOfAngles(222.5)(orbit.stars))(5);
   return (
@@ -42,9 +43,11 @@ const GoldenScene = () => {
             );
           })}
       </Points>
-      <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={0.5} radius={0.7} />
-      </EffectComposer>
+      {orbit.bloom && (
+        <EffectComposer>
+          <Bloom mipmapBlur luminanceThreshold={0.5} radius={0.7} />
+        </EffectComposer>
+      )}
     </Canvas>
   );
 };
