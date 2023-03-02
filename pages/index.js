@@ -8,7 +8,7 @@ export default function Home() {
       <Flex
         w="100%"
         maxW="100vw"
-        h="1000vh"
+        maxH="100vh"
         direction="column"
         overflowX="hidden"
       >
